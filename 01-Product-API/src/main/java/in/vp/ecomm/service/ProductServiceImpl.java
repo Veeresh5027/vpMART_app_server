@@ -10,7 +10,6 @@ import in.vp.ecomm.dto.ProductCategoryDto;
 import in.vp.ecomm.dto.ProductDto;
 import in.vp.ecomm.mapper.ProductCategoryMapper;
 import in.vp.ecomm.mapper.ProductMapper;
-import in.vp.ecomm.mapper.ProductCategoryMapper;
 import in.vp.ecomm.repo.ProductCategoryRepo;
 import in.vp.ecomm.repo.ProductRepo;
 

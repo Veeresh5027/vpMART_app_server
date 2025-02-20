@@ -63,28 +63,48 @@ public class ProductRestController {
 		}
 	}
 	
-	@GetMapping("/productsByName/{name}")
-	public ResponseEntity<ApiResponse<List<ProductDto>>> products(@PathVariable String name){
-		
-		ApiResponse<List<ProductDto>> response = new ApiResponse<>();
-		
-		List<ProductDto> products = productService.findByProductName(name);
-		
-		if(!products.isEmpty()) {
-			response.setStatus(200);
-			response.setMessage("Fetched Products Successfully");
-			response.setData(products); //payload
-			return new ResponseEntity<>(response, HttpStatus.OK);
-		}else {
-			response.setStatus(500);
-			response.setMessage("Failed to Fetch Products");
-			response.setData(null); //payload
-			return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
+//	@GetMapping("/productsByName/{name}")
+//	public ResponseEntity<ApiResponse<List<ProductDto>>> products(@PathVariable("name") String name){
+//		
+//		ApiResponse<List<ProductDto>> response = new ApiResponse<>();
+//		
+//		List<ProductDto> products = productService.findByProductName(name);
+//		
+//		if(!products.isEmpty()) {
+//			response.setStatus(200);
+//			response.setMessage("Fetched Products Successfully");
+//			response.setData(products); //payload
+//			return new ResponseEntity<>(response, HttpStatus.OK);
+//		}else {
+//			response.setStatus(500);
+//			response.setMessage("Failed to Fetch Products");
+//			response.setData(null); //payload
+//			return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+//		}
+//	}
 	
-	@GetMapping("/product/{id}")
-	public ResponseEntity<ApiResponse<ProductDto>> product(@PathVariable Long productId){
+	@GetMapping("/productsByName/{name}")
+	public ResponseEntity<ApiResponse<List<ProductDto>>> products(@PathVariable("name") String name) { 
+	    
+	    ApiResponse<List<ProductDto>> response = new ApiResponse<>();
+	    List<ProductDto> products = productService.findByProductName(name);
+	    
+	    if (!products.isEmpty()) {
+	        response.setStatus(200);
+	        response.setMessage("Fetched Products Successfully");
+	        response.setData(products);
+	        return new ResponseEntity<>(response, HttpStatus.OK);
+	    } else {
+	        response.setStatus(404);  // Not Found
+	        response.setMessage("No products found with the given name");
+	        response.setData(null);
+	        return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+	    }
+	}
+
+	
+	@GetMapping("/product/{productId}")
+	public ResponseEntity<ApiResponse<ProductDto>> product(@PathVariable("productId") Long productId){
 		
 		ApiResponse<ProductDto> response = new ApiResponse<>();
 		
