@@ -24,7 +24,7 @@ private Long id;
 	
 	private boolean active;
 	
-	private int unitInStock;
+	private int unitsInStock;
 	
 	private Date dateCreated;
 	

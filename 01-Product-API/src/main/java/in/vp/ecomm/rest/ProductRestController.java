@@ -1,10 +1,12 @@
 package in.vp.ecomm.rest;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +17,7 @@ import in.vp.ecomm.response.ApiResponse;
 import in.vp.ecomm.service.ProductService;
 
 @RestController
+@CrossOrigin
 public class ProductRestController {
 	
 	@Autowired
@@ -56,10 +59,10 @@ public class ProductRestController {
 			response.setData(products); //payload
 			return new ResponseEntity<>(response, HttpStatus.OK);
 		}else {
-			response.setStatus(500);
-			response.setMessage("Failed to Fetch Products");
-			response.setData(null); //payload
-			return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+			response.setStatus(200);
+			response.setMessage("No Products");
+			response.setData(Collections.emptyList()); //payload
+			return new ResponseEntity<>(response, HttpStatus.OK);
 		}
 	}
 	
