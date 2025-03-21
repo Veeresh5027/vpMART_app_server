@@ -23,6 +23,7 @@ public class ProductRestController {
 	@Autowired
 	private ProductService productService;
 	
+	
 	@GetMapping("/categories")
 	public ResponseEntity<ApiResponse<List<ProductCategoryDto>>> productcategories(){
 		
