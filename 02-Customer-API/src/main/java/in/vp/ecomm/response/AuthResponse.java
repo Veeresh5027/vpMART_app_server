@@ -9,5 +9,7 @@ public class AuthResponse {
 	private CustomerDto customer;
 	
 	private String token;
+	
+	private String pwdUpdated;
 
 }

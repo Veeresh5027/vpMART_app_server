@@ -98,6 +98,7 @@ public class CustomerServiceImpl implements CustomerService {
 			Customer c = customerRepo.findByEmail(customerDto.getEmail());
 			response.setCustomer(CustomerMapper.convertToDTO(c));
 			response.setToken(""); //TODO
+			response.setPwdUpdated(c.getPwdUpdated()); // Include `pwdUpdated`
 		} 
 		
 		return response;
@@ -107,9 +108,17 @@ public class CustomerServiceImpl implements CustomerService {
 	public Boolean forgotPwd(String email) {
 		Customer c = customerRepo.findByEmail(email);
 		if(c !=null) {
+			 String newPwd = getRandomPwd(); // Generate a new password
+		        
+		        // Save this new password (hashed) in the database
+		        c.setPwd(pwdEncoder.encode(newPwd)); 
+		        c.setPwdUpdated("NO"); // Force password reset
+		        customerRepo.save(c);
 			String sub = "reset Pwd Request";
-			String body = "temp body";
-			emailService.sendEmail(email, sub, body);
+			String body = "Your new temporary password is: " + newPwd + "\n\n"
+		             + "Please log in using this password and reset it immediately.";
+		emailService.sendEmail(email, sub, body);
+
 			return true;
 		}
 		return false; 
