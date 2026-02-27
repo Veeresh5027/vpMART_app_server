@@ -31,3 +31,17 @@
 * **Utility:** Lombok (to keep code clean and concise)
 
 ---
+
+## 📂 Project Architecture
+
+The project follows a standard **Layered Architecture** to ensure separation of concerns and maintainability:
+
+```text
+src/main/java/com/vpmart/
+├── controller/         # REST Controllers (API Endpoints)
+├── dto/                # Data Transfer Objects (Request/Response bodies)
+├── entity/             # Database Models (JPA Entities)
+├── exception/          # Custom Exception classes & Global Handler
+├── repository/         # Data Access Layer (JPA Repositories)
+├── service/            # Business Logic Layer (Interfaces & Impls)
+└── VpMartApplication   # Main Entry Point
