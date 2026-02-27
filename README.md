@@ -20,3 +20,14 @@
 * **Global Exception Handling:** Centralized error management for consistent API responses.
 
 ---
+
+## 🛠️ Technical Stack
+
+* **Language:** Java 17
+* **Framework:** Spring Boot 3.x
+* **Data Access:** Spring Data JPA / Hibernate
+* **Database:** MySQL
+* **Build Tool:** Maven
+* **Utility:** Lombok (to keep code clean and concise)
+
+---
