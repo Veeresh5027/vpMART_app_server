@@ -11,8 +11,9 @@
 
 ## 🚀 Key Features
 
-* **User Authentication & Authorization:** Secure login/signup using Spring Security.
-* **Product Management:** Full CRUD operations for products, including categorization and inventory tracking.
+* **User Lifecycle Management:** Complete flow for User Registration and Secure Login.
+* **Account Recovery:** Fully implemented **Forgot Password** and **Reset Password** functionality.
+* **Product Catalog:** Full CRUD operations for products, including categorization and inventory tracking.
 * **Shopping Cart Logic:** Advanced state management for user carts, allowing real-time updates.
 * **Order Processing:** Robust checkout workflow and order history tracking.
 * **RESTful Architecture:** Clean and documented API endpoints for seamless frontend integration.
