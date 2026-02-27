@@ -8,3 +8,14 @@
 **vpMART** is a high-performance, scalable REST API backend built using the **Spring Boot** framework. This server handles the core business logic, database management, and secure data flow for the vpMART e-commerce platform.
 
 ---
+
+## 🚀 Key Features
+
+* **User Authentication & Authorization:** Secure login/signup using Spring Security.
+* **Product Management:** Full CRUD operations for products, including categorization and inventory tracking.
+* **Shopping Cart Logic:** Advanced state management for user carts, allowing real-time updates.
+* **Order Processing:** Robust checkout workflow and order history tracking.
+* **RESTful Architecture:** Clean and documented API endpoints for seamless frontend integration.
+* **Global Exception Handling:** Centralized error management for consistent API responses.
+
+---
